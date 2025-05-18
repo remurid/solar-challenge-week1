@@ -5,6 +5,7 @@ Reusable functions for EDA: summary statistics, missing value report, outlier de
 import numpy as np
 import pandas as pd
 from scipy import stats
+from IPython.display import display
 
 def summary_and_missing(df):
     """
@@ -14,7 +15,7 @@ def summary_and_missing(df):
     Returns:
         pd.Series: Percentage of missing values per column.
     """
-    print(df.describe())  # Show summary statistics
+    display(df.describe())  # Show summary statistics
     missing_report = df.isna().sum() / len(df) * 100
     print("Columns with >5% missing values:")
     print(missing_report[missing_report > 5].sort_values(ascending=False))
